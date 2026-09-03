@@ -1,6 +1,6 @@
 {% set version = "5.15.11" %}
 {% set sip_version = "6.10.0" %}
-{% set pyqt5_sip_version = "12.17.0" %}
+{% set pyqt5_sip_version = "12.19.0" %}
 {% set webengine_version = "5.15.7" %}
 {% set charts_version = "5.15.7" %}
 {% set pyqt_builder_version = "<1.16.0" %}
@@ -18,7 +18,7 @@ source:
       - remove-deleted-xkb-keys.patch
 
   - url: https://pypi.org/packages/source/P/PyQt5-sip/pyqt5_sip-{{ pyqt5_sip_version }}.tar.gz
-    sha256: 682dadcdbd2239af9fdc0c0628e2776b820e128bec88b49b8d692fe682f90b4f
+    sha256: 71cacf1879da2cd3e50cb239e21673cfe02d358af70ab6768817c960428868c3
     folder: pyqt_sip
 
   - url: https://pypi.org/packages/source/P/PyQtWebEngine/PyQtWebEngine-{{ webengine_version }}.tar.gz
