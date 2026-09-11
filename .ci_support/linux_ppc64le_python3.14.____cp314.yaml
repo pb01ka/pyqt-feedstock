@@ -24,6 +24,8 @@ pyqt:
 - '5.15'
 pyqtchart:
 - '5.15'
+pyqtwebengine:
+- '5.15'
 python:
 - 3.14.* *_cp314
 qt_main:
