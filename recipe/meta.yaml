@@ -5,6 +5,14 @@
 {% set charts_version = "5.15.7" %}
 {% set pyqt_builder_version = "<1.16.0" %}
 
+{% set pyqt5_sip_script = "build-pyqt-sip.sh" %}  # [not win]
+{% set pyqt5_sip_script = "bld-pyqt-sip.bat" %}  # [win]
+{% set pyqt_script = "build-pyqt.sh" %}  # [not win]
+{% set pyqt_script = "bld-pyqt.bat" %}  # [win]
+{% set pyqtwebengine_script = "build-pyqtwebengine.sh" %}  # [not win]
+{% set pyqtwebengine_script = "bld-pyqtwebengine.bat" %}  # [win]
+{% set pyqtchart_script = "build-pyqtcharts.sh" %}  # [not win]
+{% set pyqtchart_script = "bld-pyqtcharts.bat" %}  # [win]
 
 package:
   name: pyqt-split
@@ -35,9 +43,7 @@ build:
 outputs:
   - name: pyqt5-sip
     version: {{ pyqt5_sip_version }}
-{% set script = "build-pyqt-sip.sh" %}  # [not win]
-{% set script = "bld-pyqt-sip.bat" %}  # [win]
-    script: {{ script }}
+    script: {{ pyqt5_sip_script }}
     requirements:
       build:
         - {{ compiler('c') }}
@@ -62,9 +68,7 @@ outputs:
 
   - name: pyqt
     version: {{ version }}
-{% set script = "build-pyqt.sh" %}  # [not win]
-{% set script = "bld-pyqt.bat" %}  # [win]
-    script: {{ script }}
+    script: {{ pyqt_script }}
     build:
       run_exports:
         - {{ pin_subpackage('pyqt', max_pin='x.x') }}
@@ -137,9 +141,7 @@ outputs:
 
   - name: pyqtwebengine
     version: {{ version }}
-{% set script = "build-pyqtwebengine.sh" %}  # [not win]
-{% set script = "bld-pyqtwebengine.bat" %}  # [win]
-    script: {{ script }}
+    script: {{ pyqtwebengine_script }}
     build:
       skip: True  # [ppc64le]
       run_exports:
@@ -194,9 +196,7 @@ outputs:
 
   - name: pyqtchart
     version: {{ version }}
-{% set script = "build-pyqtcharts.sh" %}  # [not win]
-{% set script = "bld-pyqtcharts.bat" %}  # [win]
-    script: {{ script }}
+    script: {{ pyqtchart_script }}
     build:
       run_exports:
         - {{ pin_subpackage('pyqtchart', max_pin='x.x') }}
