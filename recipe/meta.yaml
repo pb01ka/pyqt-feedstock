@@ -87,7 +87,7 @@ outputs:
         - python
         - pip
         - setuptools
-        - sip {{ sip_version }}                    # [build_platform == target_platform]
+        - sip {{ sip_version }}
         - toml
         - pyqt-builder {{ pyqt_builder_version }}  # [build_platform == target_platform]
         - packaging
@@ -161,7 +161,7 @@ outputs:
         - python
         - pip
         - setuptools
-        - sip {{ sip_version }}                    # [build_platform == target_platform]
+        - sip {{ sip_version }}
         - toml
         - pyqt-builder {{ pyqt_builder_version }}  # [build_platform == target_platform]
         - packaging
@@ -215,7 +215,7 @@ outputs:
         - python
         - pip
         - setuptools
-        - sip {{ sip_version }}                    # [build_platform == target_platform]
+        - sip {{ sip_version }}
         - toml
         - pyqt-builder {{ pyqt_builder_version }}  # [build_platform == target_platform]
         - packaging
