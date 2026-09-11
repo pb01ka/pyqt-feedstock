@@ -34,7 +34,9 @@ if [[ "${CONDA_BUILD_CROSS_COMPILATION}" == "1" ]]; then
   SITE_PKGS_PATH=$($PREFIX/bin/python -c 'import site;print(site.getsitepackages()[0])')
   EXTRA_FLAGS="--target-dir $SITE_PKGS_PATH"
 
-  PYQT5_LOCATION=$($BUILD_PREFIX/bin/python -c 'import PyQt5;import os;print(os.path.join(os.path.dirname(PyQt5.__file__), "bindings"))')
+  # Use $PREFIX (not $BUILD_PREFIX) so sip-include-dirs points at the actual
+  # host PyQt5 we depend on and built against, to avoid ABI mismatches.
+  PYQT5_LOCATION=$($PREFIX/bin/python -c 'import PyQt5;import os;print(os.path.join(os.path.dirname(PyQt5.__file__), "bindings"))')
   awk 'NR==25{$0="sip-include-dirs = [\"'$PYQT5_LOCATION'\"]\n"}1' pyproject.toml >  pyproject.toml.tmp
   rm pyproject.toml
   mv pyproject.toml.tmp pyproject.toml
